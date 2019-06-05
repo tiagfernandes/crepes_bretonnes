@@ -2,11 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}Crêpes Bretonnes{% endblock %}</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'imgs/favicon.png' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog-home.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    {% block body %}
 
-    {% endblock %}
+{% include 'navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        {% block body %}
+
+        {% endblock %}
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% block javascript %}
+
+{% endblock %}
 </body>
 </html>

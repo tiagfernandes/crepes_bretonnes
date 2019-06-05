@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'debug_toolbar',
 ]
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    './static/',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -105,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'fr-FR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
