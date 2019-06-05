@@ -1,19 +1,39 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<!-- Blog Post -->
-<div class="card mb-4">
-    <img class="card-img-top" src="http://placehold.it/750x200" alt="Card image cap">
-    <div class="card-body">
-        <h2 class="card-title">Post Title {{ id_article }}</h2>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla?
-            Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-            veniam magni quis!</p>
-        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-    </div>
-    <div class="card-footer text-muted">
-        Posté le  par Start Bootstrap
-    </div>
+<h1>Nouveau Article</h1>
+{% if envoi %}
+<div class="alert alert-success" role="alert">
+    Votre message a bien été envoyé !
 </div>
+{% endif %}
 
+<form action="{% url 'article_new' %}" method="post">
+    {% csrf_token %}
+<!--    <div class="form-group">-->
+<!--        <label for="{{ form.titre.id_for_label }}">{{ form.titre.label }}</label>-->
+<!--        <div class="text-danger">{{ form.titre.errors }}</div>-->
+<!--        {{ form.titre }}-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="{{ form.contenu.id_for_label }}">{{ form.contenu.label }}</label>-->
+<!--        <div class="text-danger">{{ form.contenu.errors }}</div>-->
+<!--        {{ form.contenu }}-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="{{ form.date.id_for_label }}">{{ form.date.label }}</label>-->
+<!--        <div class="text-danger">{{ form.date.errors }}</div>-->
+<!--        {{ form.date }}-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <div class="text-danger">{{ form.renvoi.errors }}</div>-->
+<!--        {{ form.renvoi }}-->
+<!--        {{ form.renvoi.help_text }}-->
+<!--    </div>-->
+    {{ form.as_p }}
+    <input class="btn btn-success" type="submit"/>
+</form>
 {% endblock %}

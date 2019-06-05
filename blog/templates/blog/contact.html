@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Contact</h1>
+{% if envoi %}
+<div class="alert alert-success" role="alert">
+    Votre message a bien été envoyé !
+</div>
+{% endif %}
+
+<form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.sujet.id_for_label }}">{{ form.sujet.label }}</label>
+        <div class="text-danger">{{ form.sujet.errors }}</div>
+        {{ form.sujet }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+        <div class="text-danger">{{ form.message.errors }}</div>
+        {{ form.message }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.envoyeur.id_for_label }}">{{ form.envoyeur.label }}</label>
+        <div class="text-danger">{{ form.envoyeur.errors }}</div>
+        {{ form.envoyeur }}
+    </div>
+
+    <div class="form-group">
+        <div class="text-danger">{{ form.renvoi.errors }}</div>
+        {{ form.renvoi }}
+        {{ form.renvoi.help_text }}
+    </div>
+    <!--{{ form.as_p }}-->
+    <input class="btn btn-success" type="submit"/>
+</form>
+{% endblock %}
